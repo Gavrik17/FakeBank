@@ -1,0 +1,62 @@
+<div class="forms" >
+<h1>{{title}}</h1>
+{{#each deposit}}
+    <div class="card mb-3" >
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="\4.jpg" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <p class="card-text">Ставка {{percent}} %</p>
+                    <p class="card-text">Сумма вклада от {{amountFrom}} до {{amountTo}} рублей</p>
+                    <p class="card-text">Срок вклада от {{termFrom}} до {{termTo}} месяцев</p>
+                    {{#if refill}}
+                        <p class="card-text">Можно пополнить счет в любой момент</p>
+                    {{else}}
+                        <p class="card-text">Нельзя пополнить счет до окончания срока вклада</p>
+                    {{/if}}
+                    {{#if takeAway}}
+                        <p class="card-text">Можно вывести средства в любой момент</p>
+                    {{else}}
+                        <p class="card-text">Нельзя вывести средства до окончания срока вклада</p>
+                    {{/if}}
+                    {{#if @root.isAuth}}
+                        <a href="/offers/deposit/{{id}}" class="btn btn-primary">Стать чуточку богаче</a>
+                    {{/if}}
+                    {{#if @root.isAdm}}
+                        <a href="/edit/deposit/{{id}}" class="btn btn-primary">Редактировать</a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+{{/each}}
+{{#each credit}}
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-4">
+            <img src="\4.jpg" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">Ставка {{percent}} %</p>
+                <p class="card-text">Сумма кредита от {{amountFrom}} до {{amountTo}} рублей</p>
+                <p class="card-text">Срок выплаты кредита от {{termFrom}} до {{termTo}} месяцев</p>
+                {{#if @root.isAuth}}
+                    <a href="/offers/credit/{{id}}" class="btn btn-primary">Оформить каторгу</a>
+                {{/if}}
+                {{#if @root.isAdm}}
+                    <a href="/edit/credit/{{id}}" class="btn btn-primary">Редактировать</a>
+                {{/if}}
+            </div>
+            </div>
+        </div>
+    </div>
+{{/each}}
+
+</div>
+
+

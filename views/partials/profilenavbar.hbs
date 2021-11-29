@@ -1,0 +1,22 @@
+<div>
+    <h3>Пункты меню</h3>
+    <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link active" href="/profile">Профиль</a></li>
+        {{#if isAdm}}
+            <li class="nav-item"><a class="nav-link active" href="/addperson">Добавить нового пользователя</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/addcredit">Добавить новый кредит</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/adddeposit">Добавить новый депозит</a></li>
+        {{else}}
+            {{#if isEmployee}}
+                <li class="nav-item"><a class="nav-link active" href="/addperson">Добавить нового пользователя</a></li>
+            {{else}}
+                <li class="nav-item"><a class="nav-link active" href="/profile/mycredit">Кредитный счет</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/profile/mydeposit">Депозитный счет</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/profile/mypayment">Расчетный счет</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#">Переводы</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#">Оплатить</a></li>
+                {{/if}}
+        {{/if}}
+        
+    </ul>
+</div>

@@ -1,0 +1,40 @@
+<div class="forms">
+<h1>Добавить новый депозит</h1>
+<form action="/adddeposit" method="POST">
+
+    <label for="name">Название</label>
+    <input class="form-control" type="text" name="name" id="name" required>
+    <br>
+
+    <label for="amountFrom">Сумма от</label>
+    <input class="form-control" type="text" name="amountFrom" id="amountFrom" required>
+    <br>
+
+    <label for="amountTo">Сумма до</label>
+    <input class="form-control" type="text" name="amountTo" id="amountTo" required>
+    <br>
+
+    <label for="percent">Процент</label>
+    <input class="form-control" type="text" name="percent" id="percent" required>
+    <br>
+
+    <label for="termFrom">Срок от (Месяцы)</label>
+    <input class="form-control" type="text" name="termFrom" id="termFrom" required>
+    <br>
+
+    <label for="termTo">Срок до (Месяцы)</label>
+    <input class="form-control" type="text" name="termTo" id="termTo" required>
+
+
+    <label for="refill">Возможность пополнить счет</label>
+    <input class="form-check-input" id="refill" name="refill" type="radio" value="true"> Да
+    <input class="form-check-input" id="refill" name="refill" type="radio" value="false"> Нет
+
+
+    <label for="takeAway">Возможность снять средства</label>
+    <input class="form-check-input" id="takeAway" name="takeAway" type="radio" value="true"> Да
+    <input class="form-check-input" id="takeAway" name="takeAway" type="radio" value="false"> Нет
+    <br>
+    <button class="btn btn-primary">Push me</button>
+</form>
+</div>
