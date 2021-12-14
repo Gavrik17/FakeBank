@@ -1,5 +1,4 @@
-<div class="forms">
-    <h1>Редактировать кредит</h1>
+<h1>Редактировать кредит</h1>
 <br>
 {{#if isDeposit}}
     <form action="/edit" method="POST">
@@ -7,60 +6,58 @@
     <form action="/edit" method="POST">
 {{/if}}
 
-    <input class="form-control" type="hidden" name="id" value={{offer.id}}>
-    <input class="form-control" type="hidden" name="isDeposit" value={{isDeposit}}>
+    <input type="hidden" name="id" value={{offer.id}}>
+    <input type="hidden" name="isDeposit" value={{isDeposit}}>
 
     <label for="name">Название</label>
-    <input class="form-control" type="text" name="name" id="name" value={{offer.name}} required>
+    <input type="text" name="name" id="name" value={{offer.name}} required>
     <br>
 
     <label for="amountFrom">Сумма от</label>
-    <input class="form-control" type="text" name="amountFrom" id="amountFrom" value={{offer.amountFrom}} required>
+    <input type="text" name="amountFrom" id="amountFrom" value={{offer.amountFrom}} required>
     <br>
 
     <label for="amountTo">Сумма до</label>
-    <input class="form-control" type="text" name="amountTo" id="amountTo" value={{offer.amountTo}} required>
+    <input type="text" name="amountTo" id="amountTo" value={{offer.amountTo}} required>
     <br>
 
     <label for="percent">Процент</label>
-    <input class="form-control" type="text" name="percent" id="percent" value={{offer.percent}} required>
+    <input type="text" name="percent" id="percent" value={{offer.percent}} required>
     <br>
 
     <label for="termFrom">Срок от (Месяцы)</label>
-    <input class="form-control" type="text" name="termFrom" id="termFrom" value={{offer.termFrom}} required>
+    <input type="text" name="termFrom" id="termFrom" value={{offer.termFrom}} required>
     <br>
 
     <label for="termTo">Срок до (Месяцы)</label>
-    <input class="form-control" type="text" name="termTo" id="termTo" value={{offer.termTo}} required>
+    <input type="text" name="termTo" id="termTo" value={{offer.termTo}} required>
     <br>
     {{#if isDeposit}}
         <label>Возможность пополнить счет</label>
         {{#if offer.refill}}
-            <input class="form-check-input" name="refill" type="radio" value="true" checked> Да
-            <input class="form-check-input" name="refill" type="radio" value="false"> Нет
+            <input name="refill" type="radio" value="true" checked> Да
+            <input name="refill" type="radio" value="false"> Нет
         {{else}}
-            <input class="form-check-input" name="refill" type="radio" value="true"> Да
-            <input class="form-check-input" name="refill" type="radio" value="false" checked> Нет
+            <input name="refill" type="radio" value="true"> Да
+            <input name="refill" type="radio" value="false" checked> Нет
         {{/if}}
 
         <label>Возможность снять средства</label>
         {{#if offer.takeAway}}
-            <input class="form-check-input" name="takeAway" type="radio" value="true" checked> Да
-            <input class="form-check-input" name="takeAway" type="radio" value="false"> Нет
+            <input name="takeAway" type="radio" value="true" checked> Да
+            <input name="takeAway" type="radio" value="false"> Нет
         {{else}}
-            <input class="form-check-input" name="takeAway" type="radio" value="true"> Да
-            <input class="form-check-input" name="takeAway" type="radio" value="false" checked> Нет
+            <input name="takeAway" type="radio" value="true"> Да
+            <input name="takeAway" type="radio" value="false" checked> Нет
         {{/if}}
         
         <br>
     {{/if}}
-    <button class="btn btn-primary">Редактировать</button>
-    <p></p>
+    <button>Редактировать</button>
 </form>
 
 <form action="/edit/remove" method="POST">
-    <input class="form-control" type="hidden" name="id" value={{offer.id}}>
-    <input class="form-control" type="hidden" name="isDeposit" value={{isDeposit}}>
-    <button class="btn btn-primary">Удалить</button>
+    <input type="hidden" name="id" value={{offer.id}}>
+    <input type="hidden" name="isDeposit" value={{isDeposit}}>
+    <button>Удалить</button>
 </form>
-</div>

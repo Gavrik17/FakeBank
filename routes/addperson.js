@@ -3,6 +3,7 @@ const Person = require('../models/person')
 const PersonalData = require('../models/personalData')
 const router = Router()
 
+// Переход на страницу добавления клиента в личном кабинете
 router.get('/', (req, res) => {
     res.render('add/person',{
         layout: 'cabinet',
@@ -10,8 +11,9 @@ router.get('/', (req, res) => {
     })
 })
 
+// Обработка формы создания клиента
 router.post('/', async (req, res) => {
-    let personalData = new PersonalData({
+    let personalData = new PersonalData({   //Добавление в схему (класс) для занесения в бд
         surname: req.body.surname,
         name: req.body.name,
         patronymic: req.body.patronymic,
@@ -25,13 +27,13 @@ router.post('/', async (req, res) => {
         key: req.body.key
     })
 
-    let person = new Person({
+    let person = new Person({   //Добавление в схему (класс) для занесения в бд
         login: Math.random().toString(36).slice(-8),
         password: Math.random().toString(36).slice(-8),
         personalData: personalData
     })
     try {
-        await personalData.save()
+        await personalData.save()   //Занесение в бд
         await person.save()
         res.render('add/logpas',{
             layout: 'cabinet',

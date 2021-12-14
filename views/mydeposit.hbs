@@ -1,19 +1,17 @@
+<h1>Мои кредиты</h1>
+
 {{#if deposits}}
     {{#each deposits}}
-        <div class="card forms">
-    <h5 class="card-header">Вклад</h5>
-    <div class="card-body">
-        <h5 class="card-title">{{rate.name}}</h5>
-        <p class="card-text">Процентная ставка: {{rate.percent}} %</p>
-        <p class="card-text">Когда оформили кредит: {{date}}</p>
-        <p class="card-text">Срок: {{term}} месяцев</p>
-        <p class="card-text">Сумма: {{amount}} рублей</p>
-        <a href="#" class="btn btn-primary">Оплатить</a>
-        <a href="#" class="btn btn-primary">Посмотреть историю</a>
-    </div>
-</div>
+        <div style='border: 1px solid black'>
+            Название выбранного кредита: {{rate.name}}
+            <br>
+            Процентная ставка: {{rate.percent}} %
+            <br>
+            Срок: {{term}} месяцев
+            <br>
+            Сумма: {{amount}} рублей
+        </div>
     {{/each}}
 {{else}}
     <h3>Открой вклад в нашем банке и стань миллионером через 100 лет!</h3>
 {{/if}}
-

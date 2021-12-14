@@ -1,51 +1,49 @@
-<div class="forms">
-<h5>Регистрация нового пользователя</h5>
+<p>Не форма, а искусство</p>
 <form action="/addperson" method="POST">
     <label for="surname">Фамилия</label>
-    <input class="form-control" type="text" name="surname" required>
-    <br>
+    <input type="text" name="surname" required>
+
     <label for="name">Имя</label>
-    <input class="form-control" type="text" name="name" required>
-    <br>
+    <input type="text" name="name" required>
+
     <label for="patronymic">Отчество</label>
-    <input class="form-control" type="text" name="patronymic" required>
+    <input type="text" name="patronymic" required>
     <br>
 
     <label for="dateBirth">Дата рождения</label>
-    <input class="form-control" type="date" name="dateBirth" required>
+    <input type="date" name="dateBirth" required>
     <br>
 
     <label for="phone">Номер телефона</label>
-    <input class="form-control" type="text" name="phone" required>
-    <br>
+    <input type="text" name="phone" required>
+
     <label for="email">Электронная почта</label>
-    <input class="form-control" type="email" name="email" required>
+    <input type="email" name="email" required>
     <br>
 
     <label for="pasport">Серия и номер паспорта</label>
-    <input class="form-control" type="text" name="pasport" required>
-    <br>
+    <input type="text" name="pasport" required>
+
     <label for="pasportDate">Дата выдачи паспорта</label>
-    <input class="form-control" type="date" name="pasportDate" required>
+    <input type="date" name="pasportDate" required>
     <br>
 
     <label for="division">Кем выдан паспорт</label>
-    <input class="form-control" type="text" name="division" required>
+    <input type="text" name="division" required>
     <br>
 
-    <select class="form-select" name="post">
+    <select name="post">
         <option>Клиент</option>
         {{#if isAdm}}
             <option>Сотрудник</option>
             <option>Администратор</option>
         {{/if}}
-    </select><br>
+    </select>
 
     <label for="key">Ключевое слово</label>
-    <input class="form-control" type="text" name="key" required>
+    <input type="text" name="key" required>
     <br>
 
 
-    <button class="btn btn-primary">Push me</button>
+    <button>Push me</button>
 </form>
-</div>

@@ -1,17 +1,16 @@
+<h1>Расчетный счет</h1>
 
 {{#if payment}}
     {{#each payment}}
-        <div class="card forms">
-    <h5 class="card-header">Номер счета: {{id}}</h5>
-    <div class="card-body">
-        <h5 class="card-title">Сумма: {{amount}} рублей</h5>
-        <a href="/offers/remittance/{{id}}" class="btn btn-primary">Перевести средства</a>
-    </div>
-</div>
+        <div style="border: 1px solid black;">
+            Номер счета: {{id}}
+            <br>
+            Сумма: {{amount}} рублей
+            <h3><a href="/offers/remittance/{{id}}">Перевести средства</a></h3>
+        </div>
     {{/each}}
 {{else}}
     <h3>У вас нет расчетного счета</h3>
 {{/if}}
-
 <br>
 <a href="/offers/addpayment">Создать новый расчетный счет</a>

@@ -18,3 +18,4 @@ module.exports = async function(req, res, next) {
     next()
 }
 
+// Данный обработчик форматирует дату в понятный вид типа - 12 апреля 2021 года

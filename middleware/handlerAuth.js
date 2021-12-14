@@ -3,3 +3,5 @@ module.exports = function(req, res, next) {
     
     next()
 }
+
+// Создает переменную isAuth которую можно использовать в любой части приложения

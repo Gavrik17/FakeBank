@@ -1,4 +1,3 @@
-<div class="forms">
 <h1>{{title}}</h1>
 
 {{#if isDeposit}}
@@ -7,21 +6,21 @@
     <form action="/offers/takecredit" method="POST">
 {{/if}}
 <input type="hidden" name="id" value={{offer.id}}>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-                <p><h2>{{offer.name}}</h2></p>
+<div style='border: 1px solid black'>
+    <p><h2>{{offer.name}}</h2></p>
     <p>Ставка {{offer.percent}} %</p>
 
-    <p>Выберите сумму от {{offer.amountFrom}} до {{offer.amountTo}}
-        <input class="form-range amount" type="range" name="amount" min={{offer.amountFrom}} max={{offer.amountTo}} step="10000" value={{offer.amountFrom}} oninput="sliderAmount()">
-        
+    <p>Выберите сумму: {{offer.amountFrom}}
+        <input type="range" name="amount" class="amount" min={{offer.amountFrom}} max={{offer.amountTo}} step="10000" value={{offer.amountFrom}} oninput="sliderAmount()">
+        {{offer.amountTo}}
     </p>
-    <h5><p class="amountres">Сумма: {{offer.amountFrom}} рублей</p></h5> 
+    <p class="amountres">Сумма: {{offer.amountFrom}} рублей</p>
 
-    <p>Выберите срок от {{offer.termFrom}} до {{offer.termTo}}
-        <input class="form-range term" type="range" name="term" min={{offer.termFrom}} max={{offer.termTo}} step="1" value={{offer.termFrom}} oninput="sliderTerm()">
+    <p>Выберите срок: {{offer.termFrom}}
+        <input type="range" name="term" class="term" min={{offer.termFrom}} max={{offer.termTo}} step="1" value={{offer.termFrom}} oninput="sliderTerm()">
+        {{offer.termTo}}
     </p>
-    <h5><p class="termres">Срок: {{offer.termFrom}} Месяцев</p></h5>
+    <p class="termres">Срок: {{offer.termFrom}} Месяцев</p>
     {{#if isDeposit}}
         {{#if offer.refill}}
             <p>Можно поплнить счет в любой момент</p>
@@ -36,14 +35,9 @@
     {{/if}}
 
     {{#if @root.isAuth}}
-        <button class="btn btn-primary">Подтвердить</button> 
+        <button>Подтвердить</button> 
     {{/if}}
-
+</div>
     </form>
-    </div>
-</div>
-
-</div>
-
 
 <script src="/slider.js"></script>

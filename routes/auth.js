@@ -2,19 +2,21 @@ const {Router} = require('express')
 const Person = require('../models/person')
 const router = Router()
 
-
+// Страница авторизации
 router.get('/login', (req, res) => {
     res.render('auth', {
         title: 'Авторизация'
     })
 })
 
+// Обработка кнопки Выйти
 router.get('/logout', async (req, res) => {
-    req.session.destroy(() => {
+    req.session.destroy(() => {     //Уничтожение объекта сессии для разавторизации
         res.redirect('/')
     })
 })
 
+// Обработка формы авторизации, создание сессии
 router.post('/', async (req, res) => {
     try {
         let {login, password} = req.body

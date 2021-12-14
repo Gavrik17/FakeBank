@@ -1,62 +1,16 @@
-<ul class="list-group list-group-flush">
-    <li class="list-group-item">
-        <div class="ms-2 me-auto">
-            <div class="fw-bold">Статус</div>
-            {{person.post}}
-        </div>
-    </li>
-    <li class="list-group-item">
-        <div class="ms-2 me-auto">
-            <div class="fw-bold">Фамилия</div>
-            {{person.surname}}
-        </div>
-    </li>
-    <li class="list-group-item">
-        <div class="ms-2 me-auto">
-            <div class="fw-bold">Имя</div>
-            {{person.name}}
-        </div>
-    </li>
-    <li class="list-group-item">
-        <div class="ms-2 me-auto">
-            <div class="fw-bold">Отчество</div>
-            {{person.patronymic}}
-        </div>
-    </li>
-    <li class="list-group-item">
-        <div class="ms-2 me-auto">
-            <div class="fw-bold">Дата рождения</div>
-            {{dateBirth}}
-        </div>
-    </li>
-    <li class="list-group-item">
-        <div class="ms-2 me-auto">
-            <div class="fw-bold">Номер телефона</div>
-            {{person.phone}}
-        </div>
-    </li>
-    <li class="list-group-item">
-        <div class="ms-2 me-auto">
-            <div class="fw-bold">Почта</div>
-            {{person.email}}
-        </div>
-    </li>
-    <li class="list-group-item">
-        <div class="ms-2 me-auto">
-            <div class="fw-bold">Серия и номер паспорта</div>
-            {{person.pasport}}
-        </div>
-    </li>
-    <li class="list-group-item">
-        <div class="ms-2 me-auto">
-            <div class="fw-bold">Дата выдачи паспорта</div>
-            {{pasportDate}}
-        </div>
-    </li>
-    <li class="list-group-item">
-        <div class="ms-2 me-auto">
-            <div class="fw-bold">Подразделение</div>
-            {{person.division}}
-        </div>
-    </li>
-</ul>
+<div>
+    <h2>Профиль:</h2>
+    <h3>{{person.post}}</h3>
+    <p> Фамилия: {{person.surname}}
+        Имя: {{person.name}}
+        Отчество: {{person.patronymic}}
+    </p>
+    <p>Дата рождения: {{dateBirth}}</p>
+    <p> Номер телефона: {{person.phone}}
+        Почта: {{person.email}}</p>
+    <p>Паспортные данные</p>
+    <p>Серия и номер: {{person.pasport}} </p>
+    <p>Дата выдачи паспорта: {{pasportDate}}</p> 
+    <p>Подразделение: {{person.division}}</p>
+</div>
+

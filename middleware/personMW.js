@@ -8,3 +8,5 @@ module.exports = async function(req, res, next) {
   req.person = await Person.findById(req.session.person._id)
   next()
 }
+
+// Создает переменную person в которой хранится вся инфа о текущем пользователе, можно использовать в любой части приложения

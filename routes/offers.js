@@ -5,7 +5,7 @@ const Person = require('../models/person')
 
 const router = Router()
 
-
+// При переходе по ссылке кредиты подгружает все кредиты из бд
 router.get('/credits', async (req, res) => {
     let credit = await Credit.find()
     res.render('offers', {
@@ -14,6 +14,7 @@ router.get('/credits', async (req, res) => {
     })
 })
 
+// При переходе по ссылке депозиты подгружает все депозиты из бд
 router.get('/deposits', async (req, res) => {
     let deposit = await Deposit.find()
     res.render('offers', {
@@ -22,6 +23,7 @@ router.get('/deposits', async (req, res) => {
     })
 })
 
+// При переходе по ссылке выбранного объекта перекидывает на страницу выбора условий оформление кредита
 router.get('/credit/:id', async (req, res) => {
     let offer = await Credit.findById(req.params.id)
     res.render('chooseoffers', {
@@ -30,6 +32,7 @@ router.get('/credit/:id', async (req, res) => {
     })
 })
 
+// При переходе по ссылке выбранного объекта перекидывает на страницу выбора условий оформление депозита
 router.get('/deposit/:id', async (req, res) => {
     let offer = await Deposit.findById(req.params.id)
     res.render('chooseoffers', {
@@ -39,6 +42,7 @@ router.get('/deposit/:id', async (req, res) => {
     })
 })
 
+//Добавляет выбранный кредит пользователю
 router.post('/takecredit', async (req, res) => {
     let {id, amount, term} = req.body
     let credit = await Credit.findById(id)
@@ -47,6 +51,7 @@ router.post('/takecredit', async (req, res) => {
     res.redirect('/')
 })
 
+//Добавляет выбранный депозит пользователю
 router.post('/takedeposit', async (req, res) => {
     let {id, amount, term} = req.body
     let deposit = await Deposit.findById(id)
@@ -55,12 +60,14 @@ router.post('/takedeposit', async (req, res) => {
     res.redirect('/')
 })
 
+//Добавляет расчетный счет пользователю (их может быть хоть сколько)
 router.get('/addpayment', async (req, res) => {
     await req.person.addPayment()
 
     res.redirect('/')
 })
 
+//Форма перевода средств с конкретного счета
 router.get('/remittance/:id', async (req, res) => {
     let {id} = req.params
     
@@ -71,14 +78,16 @@ router.get('/remittance/:id', async (req, res) => {
     pay = payment[idx]
     res.render('remittance', {
         title: 'Перевод средств',
-        pay,
-        access: pay.amount > 0 ? true: false
+        pay
     })
 })
+
+// Обработка транзакции перевода средств со счета на счет
 router.post('/remittance', async (req, res) => {
     let {sender, receiver, amount} = req.body
     // let receive = await Person.findOne({'id': receiver})
-    let receive = await Person.findOne({'offers.payment._id': receiver})
+    let receive = await Person.findOne({'offers.paymnet._id': receiver})
+    // console.log(receive)
     await req.person.doRemittance(sender, amount, true)
     await receive.doRemittance(receiver, amount, false)
     res.redirect('/')

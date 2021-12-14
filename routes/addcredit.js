@@ -2,6 +2,7 @@ const {Router} = require('express')
 const Credit = require('../models/credit')
 const router = Router()
 
+// Переход на страницу создания кредита
 router.get('/', (req, res) => {
     res.render('add/credit', {
         layout: 'cabinet',
@@ -9,6 +10,7 @@ router.get('/', (req, res) => {
     })
 })
 
+// Обработка формы создания кредита
 router.post('/', async (req, res) => {
     console.log(req.body)
     let credit = new Credit({

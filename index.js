@@ -1,3 +1,5 @@
+// Главный файл
+// Подключение модулей и библиотек
 const express = require('express')
 const handlebars = require('express-handlebars')
 const mongoose = require('mongoose')
@@ -22,6 +24,7 @@ const MONGO_URI = "mongodb://localhost:27017/bank"
 
 const app = express()
 
+// Шаблонизатор
 const hbs = handlebars.create({
     defaultLayout: 'main',
     extname: 'hbs',
@@ -32,6 +35,7 @@ const hbs = handlebars.create({
       
   })
 
+// Подключение сессий
 const store = new MongoStore({
   collection: 'sessions',
   uri: MONGO_URI
@@ -50,10 +54,12 @@ app.use(session({
   store
 }))
 
+// Обработчики Middleware
 app.use(isAuthMW)
 app.use(personMW)
 app.use(postMW)
 
+// Обработка путей (routes)
 app.use('/', homeRoute)
 app.use('/addperson', addPersonRoute)
 app.use('/profile', profileRoute)
@@ -65,6 +71,7 @@ app.use('/edit', editRoute)
 
 const port = 3000
 
+// Запуск приложения
 async function run(){
   await mongoose.connect(MONGO_URI, { useNewUrlParser: true })
   app.listen(port, () => {

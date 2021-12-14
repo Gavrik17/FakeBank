@@ -2,6 +2,7 @@ const {Router} = require('express')
 const Deposit = require('../models/deposit')
 const router = Router()
 
+// Переход на страницу создания депозита
 router.get('/', (req, res) => {
     res.render('add/deposit', {
         layout: 'cabinet',
@@ -9,6 +10,7 @@ router.get('/', (req, res) => {
     })
 })
 
+// Обработка формы создания депозита
 router.post('/', async (req, res) => {
     let deposit = new Deposit({
         name: req.body.name,

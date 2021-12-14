@@ -3,6 +3,7 @@ const dateMW = require('../middleware/dateMW')
 
 const router = Router()
 
+// Просмотр своего профиля
 router.get('/', dateMW, async (req, res) => {
     let person = await req.person.populate('personalData')
     
@@ -12,6 +13,7 @@ router.get('/', dateMW, async (req, res) => {
         person: person.personalData
     })
 })
+
 
 router.get('/mycredit', async (req, res) => {
     let person = await req.person.populate('offers.credit.rate')

@@ -120,7 +120,7 @@ Person.methods.doRemittance = function (id, amount, send) {
         if (send){
             payment[idx].amount = payment[idx].amount - amount
         } else {
-            payment[0].amount = payment[0].amount + +amount
+            payment[0].amount = payment[0].amount + amount
         }
         this.offers.payment = payment
         return this.save()
